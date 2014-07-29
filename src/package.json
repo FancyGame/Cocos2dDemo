@@ -1,0 +1,16 @@
+{
+    "name": "Cocos2dDemo",
+    "version": "0.0.1",
+    "description": "demo",
+    "main": "main.js",
+    "dependencies": {
+        "express": "4.3.0"
+    },
+    "devDependencies": {
+    },
+    "scripts": {
+        "start": "node main.js"
+    },
+    "author": "Ken",
+    "license": ""
+}
