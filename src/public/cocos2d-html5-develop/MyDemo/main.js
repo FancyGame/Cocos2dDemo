@@ -8,6 +8,7 @@ cc.game.onStart = function(){
     }else{
         cc.loader.resPath = "res/HD";
     }
+    cc.loader.resPath = "res/Normal";
     cc.view.setDesignResolutionSize(designSize.width, designSize.height, cc.ResolutionPolicy.SHOW_ALL);
 
     //load resources
