@@ -8,6 +8,7 @@ var s_rules_sewers = 'rules_sewers.png';
 var s_logo = 'logo.png';
 var s_bg_music = 'starsng.wav';
 //var s_bg_music = 'Glad-You-Came.m4a';
+var s_role = 'fighter_2.png';
 
 var g_resources = [
     //image
@@ -18,12 +19,13 @@ var g_resources = [
     s_rules_sewers,
 
     //plist
+    s_role,
 
     //fnt
 
     //tmx
     s_tmx001,
-    s_tsx001,
+//    s_tsx001,
     s_tmw_desert_spacing,
 
     //bgm

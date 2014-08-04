@@ -51,15 +51,13 @@ var MyLayer = cc.Layer.extend({
         this.addChild(this.sprite, 0);
 
         // 加载tmx
-        var tileMap = cc.TMXTiledMap.create(s_tmx001);
-        this._tileMap = tileMap;
-//        console.log(tileMap.getContentSize());
+        this._tileMap = cc.TMXTiledMap.create(s_tmx001);
         this.addChild(this._tileMap);
 
-        //this.schedule(this.timeCallback,2);
+        this.schedule(this.timeCallback,2);
 
-        //Play back ground music
-        cc.audioEngine.playMusic(s_bg_music,true);
+        //播放背景音乐
+//        cc.audioEngine.playMusic(s_bg_music,true);
 
         // 添加事件监听
         cc.eventManager.addListener({
@@ -109,26 +107,36 @@ var MyLayer = cc.Layer.extend({
 //                console.log(str);
 //            }
 //        }, this);
+
+        //处理角色动画
+        var spRect = {width:53,height:75};
+        var texture = cc.textureCache.addImage("fighter_2.png");    //读取我们需要的图片
+        var animFrames = [];     //将之前的每一帧保存到数组中
+        for(var i=0;i<4;++i) {
+            for(var j=0;j<9;++j) {
+                var frame = cc.SpriteFrame.create(texture, cc.rect(spRect.width*j, spRect.height*i, spRect.width, spRect.height));  //将图片中每一帧利用rect切出来保存到精灵帧中
+                animFrames.push(frame);
+            }
+        }
+
+        var sprite = cc.Sprite.create(animFrames[0]);    //从图片帧中创建一个精灵
+        sprite.setPosition(cc.p(WinSize.width/2, WinSize.height/2));
+        this.addChild(sprite);
+
+        var animation = cc.Animation.create(animFrames, 0.2);  //创建动画， 第一个参数帧数组， 第二个参数是延迟时间，即每帧图片间隔多少播放
+        var animate = cc.Animate.create(animation);  //创建动画动作
+        sprite.runAction(cc.RepeatForever.create(animate));
     },
     timeCallback: function (dt) {
         console.log('timeCallback', new Date(), dt);
+        //改变timer的间隔时间
         if (this.repeatCount++ == 5) {
 //            this.unschedule(this.timeCallback);
             this.schedule(this.timeCallback, 1);
         }
     },
-    registerWithTouchDispatcher: function () {
-        // CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
-        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
-    },
-    onTouchEnded: function (touch, event) {
-        var touchLocation = touch.getLocation();
-        touchLocation = this.convertToNodeSpace(touchLocation);
-        console.log('onTouchEnded', touchLocation);
-    },
-    onTouchBegan: function (touches, event) {
-        // 返回true表明接受这个触摸
-        return true;
+    endFunc: function() {
+        ;
     }
 });
 
@@ -138,18 +146,5 @@ var MyScene = cc.Scene.extend({
         var layer = new MyLayer();
         this.addChild(layer);
         layer.init();
-//        // 加载tmx
-//        var tileMap = cc.TMXTiledMap.create(s_tmx001);
-//        this._tileMap = tileMap;
-//        this.addChild(this._tileMap);
-        // 获得对象层
-//        var objectLayer = tileMap.getLayer("Ground");
-//        if(!objectLayer) {
-//            console.log("No this layer");
-//        }
-//        else {
-//            console.log(objectLayer);
-////            this.addChild(objectLayer);
-//        }
     }
 });
