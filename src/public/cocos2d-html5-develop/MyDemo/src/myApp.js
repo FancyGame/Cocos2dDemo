@@ -127,6 +127,7 @@ var MyLayer = cc.Layer.extend({
         var animate = cc.Animate.create(animation);  //创建动画动作
         sprite.runAction(cc.RepeatForever.create(animate));
 
+
         //处理角色动画
         (function(thisLayer){
             var spRect2 = {width:67,height:100};
