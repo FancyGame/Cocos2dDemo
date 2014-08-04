@@ -9,6 +9,7 @@ var s_logo = 'logo.png';
 var s_bg_music = 'starsng.wav';
 //var s_bg_music = 'Glad-You-Came.m4a';
 var s_role = 'fighter_2.png';
+var s_explosion = 'explosion.png'
 
 var g_resources = [
     //image
@@ -20,6 +21,7 @@ var g_resources = [
 
     //plist
     s_role,
+    s_explosion,
 
     //fnt
 

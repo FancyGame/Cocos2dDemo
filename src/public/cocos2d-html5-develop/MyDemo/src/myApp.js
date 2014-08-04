@@ -110,7 +110,7 @@ var MyLayer = cc.Layer.extend({
 
         //处理角色动画
         var spRect = {width:53,height:75};
-        var texture = cc.textureCache.addImage("fighter_2.png");    //读取我们需要的图片
+        var texture = cc.textureCache.addImage(s_role);    //读取我们需要的图片
         var animFrames = [];     //将之前的每一帧保存到数组中
         for(var i=0;i<4;++i) {
             for(var j=0;j<9;++j) {
@@ -126,6 +126,25 @@ var MyLayer = cc.Layer.extend({
         var animation = cc.Animation.create(animFrames, 0.2);  //创建动画， 第一个参数帧数组， 第二个参数是延迟时间，即每帧图片间隔多少播放
         var animate = cc.Animate.create(animation);  //创建动画动作
         sprite.runAction(cc.RepeatForever.create(animate));
+
+        //处理角色动画
+        (function(thisLayer){
+            var spRect2 = {width:67,height:100};
+            var texture = cc.textureCache.addImage(s_explosion);    //读取我们需要的图片
+            var animFrames = [];     //将之前的每一帧保存到数组中
+            for(var i=0;i<11;++i) {
+                var frame = cc.SpriteFrame.create(texture, cc.rect(spRect2.width*i, 0, spRect2.width, spRect2.height));  //将图片中每一帧利用rect切出来保存到精灵帧中
+                animFrames.push(frame);
+            }
+
+            var sprite = cc.Sprite.create(animFrames[0]);    //从图片帧中创建一个精灵
+            sprite.setPosition(cc.p(WinSize.width/2, WinSize.height/4));
+            thisLayer.addChild(sprite);
+
+            var animation = cc.Animation.create(animFrames, 0.15);  //创建动画， 第一个参数帧数组， 第二个参数是延迟时间，即每帧图片间隔多少播放
+            var animate = cc.Animate.create(animation);  //创建动画动作
+            sprite.runAction(cc.RepeatForever.create(animate));
+        })(this);
     },
     timeCallback: function (dt) {
         console.log('timeCallback', new Date(), dt);
