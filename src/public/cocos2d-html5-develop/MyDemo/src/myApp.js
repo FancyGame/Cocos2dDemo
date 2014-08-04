@@ -121,6 +121,8 @@ var MyLayer = cc.Layer.extend({
 
         var sprite = cc.Sprite.create(animFrames[0]);    //从图片帧中创建一个精灵
         sprite.setPosition(cc.p(WinSize.width/2, WinSize.height/2));
+//        var cbl = {cc._renderContext.ONE,cc._renderContext.ZERO};
+//        sprite.setBlendFunc(cbl);
         this.addChild(sprite);
 
         var animation = cc.Animation.create(animFrames, 0.2);  //创建动画， 第一个参数帧数组， 第二个参数是延迟时间，即每帧图片间隔多少播放
