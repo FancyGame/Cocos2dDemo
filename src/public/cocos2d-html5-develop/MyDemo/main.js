@@ -15,5 +15,7 @@ cc.game.onStart = function(){
     cc.LoaderScene.preload(g_resources, function () {
         cc.director.runScene(new MyScene());
     }, this);
+    //去掉左下角的FPS显示
+    cc.director.setDisplayStats(false);
 };
 cc.game.run();
