@@ -9,26 +9,20 @@ var s_logo = 'logo.png';
 var s_bg_music = 'starsng.wav';
 //var s_bg_music = 'Glad-You-Came.m4a';
 var s_role = 'fighter.png';
-var s_explosion = 'explosion.png'
+var s_explosion = 'explosion.png';
+var s_bgpic = 'bg.png';
+var s_block = 'block.png';
 
 var g_resources = [
     //image
-    s_HelloWorld,
-    s_CloseNormal,
-    s_CloseSelected,
-    s_logo,
-    s_rules_sewers,
+    s_bgpic,
+    s_block,
 
     //plist
-    s_role,
-    s_explosion,
 
     //fnt
 
     //tmx
-    s_tmx001,
-//    s_tsx001,
-    s_tmw_desert_spacing,
 
     //bgm
     s_bg_music

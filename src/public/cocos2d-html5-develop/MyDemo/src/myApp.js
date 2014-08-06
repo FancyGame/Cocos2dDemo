@@ -165,7 +165,7 @@ var MyLayer = cc.Layer.extend({
 var MyScene = cc.Scene.extend({
     onEnter: function () {
         this._super();
-        var layer = new MyLayer();
+        var layer = new GameLayer();
         this.addChild(layer);
         layer.init();
     }
