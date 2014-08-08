@@ -88,25 +88,25 @@ var MyLayer = cc.Layer.extend({
             }
         }, this);
 
-//        cc.eventManager.addListener({
-//            event: cc.EventListener.MOUSE,
-//            onMouseMove: function (event) {
-//                var str = "Mouse Move Position X: " + event.getLocationX() + "  Y:" + event.getLocationY();
-//                console.log(str);
-//            },
-//            onMouseUp: function (event) {
-//                var str = "Mouse Up detected, Key: " + event.getButton();
-//                console.log(str);
-//            },
-//            onMouseDown: function (event) {
-//                var str = "Mouse Down detected, Key: " + event.getButton();
-//                console.log(str);
-//            },
-//            onMouseScroll: function (event) {
-//                var str = "Mouse Scroll detected, X: " + event.getLocationX() + "  Y:" + event.getLocationY();
-//                console.log(str);
-//            }
-//        }, this);
+        cc.eventManager.addListener({
+            event: cc.EventListener.MOUSE,
+            onMouseMove: function (event) {
+                var str = "Mouse Move Position X: " + event.getLocationX() + "  Y:" + event.getLocationY();
+                console.log(str);
+            },
+            onMouseUp: function (event) {
+                var str = "Mouse Up detected, Key: " + event.getButton();
+                console.log(str);
+            },
+            onMouseDown: function (event) {
+                var str = "Mouse Down detected, Key: " + event.getButton();
+                console.log(str);
+            },
+            onMouseScroll: function (event) {
+                var str = "Mouse Scroll detected, X: " + event.getLocationX() + "  Y:" + event.getLocationY();
+                console.log(str);
+            }
+        }, this);
 
         //处理角色动画
         var spRect = {width:53,height:75};
